@@ -11,6 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BridalPOS.DataAccess", "Bri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BridalPOS.Bootstrapper", "BridalPOS.Bootstrapper\BridalPOS.Bootstrapper.csproj", "{D515461E-67CE-40C7-B012-0842F7FB8E1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BridalPOS.DataAccess.Interfaces", "BridalPOS.DataAccess.Interfaces\BridalPOS.DataAccess.Interfaces.csproj", "{5CC85B5A-679F-4F5A-A75A-2587D4A64A60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BridalPOS.Business.Interfaces", "BridalPOS.Business.Interfaces\BridalPOS.Business.Interfaces.csproj", "{843A2DAE-CBDB-4EF5-842E-F240C78CCFED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BridalPOS.Utilities", "BridalPOS.Utilities\BridalPOS.Utilities.csproj", "{66C790BC-7C22-4102-87B9-EB682D1C54CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +43,18 @@ Global
 		{D515461E-67CE-40C7-B012-0842F7FB8E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D515461E-67CE-40C7-B012-0842F7FB8E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D515461E-67CE-40C7-B012-0842F7FB8E1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CC85B5A-679F-4F5A-A75A-2587D4A64A60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CC85B5A-679F-4F5A-A75A-2587D4A64A60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CC85B5A-679F-4F5A-A75A-2587D4A64A60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CC85B5A-679F-4F5A-A75A-2587D4A64A60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{843A2DAE-CBDB-4EF5-842E-F240C78CCFED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{843A2DAE-CBDB-4EF5-842E-F240C78CCFED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{843A2DAE-CBDB-4EF5-842E-F240C78CCFED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{843A2DAE-CBDB-4EF5-842E-F240C78CCFED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66C790BC-7C22-4102-87B9-EB682D1C54CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66C790BC-7C22-4102-87B9-EB682D1C54CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66C790BC-7C22-4102-87B9-EB682D1C54CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66C790BC-7C22-4102-87B9-EB682D1C54CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

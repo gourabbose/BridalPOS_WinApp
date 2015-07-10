@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\ModelBase.cs" />
-    <Compile Include="Core\ExistingModels.cs" />
+    <Compile Include="Core\_ExistingModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

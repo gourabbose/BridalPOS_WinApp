@@ -5,7 +5,7 @@
 //    All models should inherit Modelbase
 //    [GOURAB 10-Jul-2015]
 // </Notes>
-//------------------------------------------------------------------------------using System;
+//------------------------------------------------------------------------------
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,16 +21,12 @@ namespace BridalPOS.Models.Core
         public Nullable<System.DateTime> DueDate { get; set; }
         public Nullable<System.DateTime> CompleteDate { get; set; }
         public string Note { get; set; }
-        public Nullable<short> ClerkId { get; set; }
-        public int MemberId { get; set; }
 
-        public virtual Employee Employee { get; set; }
+        public virtual Employee Clerk { get; set; }
         public virtual Member Member { get; set; }
     }
     public class CashDrawer : ModelBase         
     {
-        public short TransactionTypeId { get; set; }
-        public short PaymentTypeId { get; set; }
         public decimal Amount { get; set; }
         public string Description { get; set; }
         public System.DateTime PostDate { get; set; }
@@ -48,7 +44,6 @@ namespace BridalPOS.Models.Core
             this.StyleMasters = new HashSet<StyleMaster>();
         }
 
-        public short Id { get; set; }
         public string Name { get; set; }
         public Nullable<double> MakeupPercent { get; set; }
         public Nullable<decimal> MakeupPrice { get; set; }
@@ -86,12 +81,10 @@ namespace BridalPOS.Models.Core
     public class Commission : ModelBase         
     {
 
-        public short EmployeeId { get; set; }
         public decimal Amount { get; set; }
         public bool IsPayable { get; set; }
         public Nullable<System.DateTime> PaidDate { get; set; }
         public bool IsActive { get; set; }
-        public int TicketDetailId { get; set; }
 
         public virtual Employee Employee { get; set; }
         public virtual TicketDetail TicketDetail { get; set; }
@@ -106,7 +99,6 @@ namespace BridalPOS.Models.Core
             this.Notes = new HashSet<Note>();
         }
 
-        public short Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
@@ -124,16 +116,13 @@ namespace BridalPOS.Models.Core
 
         public string Name { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<short> TypeId { get; set; }
-        public Nullable<short> ConsultantId { get; set; }
         public Nullable<short> BM { get; set; }
         public Nullable<short> GM { get; set; }
         public Nullable<short> FG { get; set; }
-        public int MemberId { get; set; }
         public bool IsCancelled { get; set; }
         public Nullable<System.DateTime> RegistrationDate { get; set; }
 
-        public virtual Employee Employee { get; set; }
+        public virtual Employee Consultant { get; set; }
         public virtual EventType EventType { get; set; }
         public virtual Member Member { get; set; }
     }
@@ -144,7 +133,6 @@ namespace BridalPOS.Models.Core
             this.Events = new HashSet<Event>();
         }
 
-        public short Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<Event> Events { get; set; }
@@ -156,7 +144,6 @@ namespace BridalPOS.Models.Core
             this.StyleMasters = new HashSet<StyleMaster>();
         }
 
-        public short Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<StyleMaster> StyleMasters { get; set; }
@@ -165,11 +152,7 @@ namespace BridalPOS.Models.Core
     {
 
         public Nullable<System.DateTime> PostDate { get; set; }
-        public Nullable<int> StyleId { get; set; }
-        public Nullable<short> ColorId { get; set; }
         public string Note { get; set; }
-        public Nullable<short> ClassId { get; set; }
-        public int MemberId { get; set; }
 
         public virtual Class Class { get; set; }
         public virtual Color Color { get; set; }
@@ -182,7 +165,6 @@ namespace BridalPOS.Models.Core
         public string Name { get; set; }
         public string Path { get; set; }
         public string Description { get; set; }
-        public short SecurityLevelId { get; set; }
 
         public virtual SecurityLevel SecurityLevel { get; set; }
     }
@@ -193,7 +175,6 @@ namespace BridalPOS.Models.Core
             this.Members = new HashSet<Member>();
         }
 
-        public short Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<Member> Members { get; set; }
@@ -201,8 +182,6 @@ namespace BridalPOS.Models.Core
     public class Inventory : ModelBase          
     {
 
-        public int StyleId { get; set; }
-        public short ColorId { get; set; }
         public string Size { get; set; }
         public int Quantity { get; set; }
         public int SampleQty { get; set; }
@@ -210,18 +189,15 @@ namespace BridalPOS.Models.Core
         public Nullable<System.DateTime> DateOfSample { get; set; }
 
         public virtual Color Color { get; set; }
-        public virtual StyleMaster StyleMaster { get; set; }
+        public virtual StyleMaster Style { get; set; }
     }
     public class ItemStatus : ModelBase         
     {
-        public short Id { get; set; }
         public string Name { get; set; }
     }
     public class LeadTime : ModelBase           
     {
 
-        public short VendorId { get; set; }
-        public short ClassId { get; set; }
         public Nullable<short> RegLeadTime { get; set; }
         public Nullable<short> RushLeadTime { get; set; }
 
@@ -252,25 +228,21 @@ namespace BridalPOS.Models.Core
         public string Cell { get; set; }
         public string Fax { get; set; }
         public string Email { get; set; }
-        public Nullable<short> SchoolId { get; set; }
         public Nullable<short> GradYear { get; set; }
-        public Nullable<short> SourceInfoId { get; set; }
         public string Bust { get; set; }
         public string Waist { get; set; }
         public string Hip { get; set; }
         public string Size { get; set; }
         public string Height { get; set; }
-        public Nullable<short> RoleId { get; set; }
-        public Nullable<int> OwnerId { get; set; }
 
+        public virtual Member Owner { get; set; }
+        public virtual MemberRole Role { get; set; }
+        public virtual School School { get; set; }
+        public virtual InfoSource SourceInfo { get; set; }
         public virtual ICollection<Action> Actions { get; set; }
         public virtual ICollection<Event> Events { get; set; }
         public virtual ICollection<Favorite> Favorites { get; set; }
-        public virtual InfoSource InfoSource { get; set; }
         public virtual ICollection<Member> Member1 { get; set; }
-        public virtual Member Member2 { get; set; }
-        public virtual MemberRole MemberRole { get; set; }
-        public virtual School School { get; set; }
         public virtual ICollection<Note> Notes { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
     }
@@ -281,7 +253,6 @@ namespace BridalPOS.Models.Core
             this.Members = new HashSet<Member>();
         }
 
-        public short Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<Member> Members { get; set; }
@@ -293,7 +264,6 @@ namespace BridalPOS.Models.Core
             this.StyleMasters = new HashSet<StyleMaster>();
         }
 
-        public short Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<StyleMaster> StyleMasters { get; set; }
@@ -302,11 +272,9 @@ namespace BridalPOS.Models.Core
     {
 
         public Nullable<System.DateTime> PostDate { get; set; }
-        public Nullable<short> ClerkId { get; set; }
         public string NoteText { get; set; }
-        public int MemberId { get; set; }
 
-        public virtual Employee Employee { get; set; }
+        public virtual Employee Clerk { get; set; }
         public virtual Member Member { get; set; }
     }
     public class PaymentType : ModelBase        
@@ -316,7 +284,6 @@ namespace BridalPOS.Models.Core
             this.CashDrawers = new HashSet<CashDrawer>();
         }
 
-        public short Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<CashDrawer> CashDrawers { get; set; }
@@ -329,7 +296,6 @@ namespace BridalPOS.Models.Core
         }
 
 
-        public short VendorId { get; set; }
         public string ShipVia { get; set; }
         public Nullable<System.DateTime> ReqShipDate { get; set; }
         public Nullable<System.DateTime> VendorShipDate { get; set; }
@@ -339,19 +305,16 @@ namespace BridalPOS.Models.Core
         public string RecPONote { get; set; }
         public System.DateTime PostedDate { get; set; }
         public Nullable<System.DateTime> UpdateDate { get; set; }
-        public short StatusId { get; set; }
         public string VoidReason { get; set; }
         public string POName { get; set; }
 
-        public virtual PurchaseStatus PurchaseStatus { get; set; }
+        public virtual PurchaseStatus Status { get; set; }
         public virtual Vendor Vendor { get; set; }
         public virtual ICollection<PurchaseOrderDetail> PurchaseOrderDetails { get; set; }
     }
     public class PurchaseOrderDetail : ModelBase
     {
 
-        public int PurchaseOrderId { get; set; }
-        public int TicketDetailId { get; set; }
         public short Line { get; set; }
         public Nullable<System.DateTime> ReceivedDate { get; set; }
 
@@ -365,14 +328,12 @@ namespace BridalPOS.Models.Core
             this.PurchaseOrders = new HashSet<PurchaseOrder>();
         }
 
-        public short Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
     }
     public class ReportMessage : ModelBase      
     {
-        public short Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
     }
@@ -383,7 +344,6 @@ namespace BridalPOS.Models.Core
             this.Members = new HashSet<Member>();
         }
 
-        public short Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<Member> Members { get; set; }
@@ -395,7 +355,6 @@ namespace BridalPOS.Models.Core
             this.GeneralReports = new HashSet<GeneralReport>();
         }
 
-        public short Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<GeneralReport> GeneralReports { get; set; }
@@ -407,7 +366,6 @@ namespace BridalPOS.Models.Core
             this.StyleMasters = new HashSet<StyleMaster>();
         }
 
-        public short Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<StyleMaster> StyleMasters { get; set; }
@@ -421,7 +379,6 @@ namespace BridalPOS.Models.Core
             this.StyleMasters2 = new HashSet<StyleMaster>();
         }
 
-        public short Id { get; set; }
         public string Name { get; set; }
         public string Range { get; set; }
 
@@ -436,7 +393,6 @@ namespace BridalPOS.Models.Core
             this.StyleMasters = new HashSet<StyleMaster>();
         }
 
-        public short Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<StyleMaster> StyleMasters { get; set; }
@@ -460,7 +416,6 @@ namespace BridalPOS.Models.Core
             this.SysParameters = new HashSet<SysParameter>();
         }
 
-        public short Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<SysParameter> SysParameters { get; set; }
@@ -475,21 +430,12 @@ namespace BridalPOS.Models.Core
 
 
         public string Code { get; set; }
-        public Nullable<short> VendorId { get; set; }
         public string VendorStyle { get; set; }
         public string StoreStyle { get; set; }
-        public Nullable<short> ClassId { get; set; }
         public string ShortDescr { get; set; }
-        public Nullable<short> SizeRangeId { get; set; }
-        public Nullable<short> ExtraSizeRangeId1 { get; set; }
         public Nullable<decimal> Charge1 { get; set; }
-        public Nullable<short> ExtraSizeRangeId2 { get; set; }
         public Nullable<decimal> Charge2 { get; set; }
         public Nullable<decimal> XLCharge { get; set; }
-        public Nullable<short> NeckLineId { get; set; }
-        public Nullable<short> SilhouetteId { get; set; }
-        public Nullable<short> FabricId { get; set; }
-        public Nullable<short> SleeveId { get; set; }
         public bool IsServiceItem { get; set; }
         public Nullable<decimal> Cost { get; set; }
         public Nullable<decimal> RetailPrice { get; set; }
@@ -510,14 +456,13 @@ namespace BridalPOS.Models.Core
         public virtual NeckLine NeckLine { get; set; }
         public virtual Silhouette Silhouette { get; set; }
         public virtual SizeRange SizeRange { get; set; }
-        public virtual SizeRange SizeRange1 { get; set; }
-        public virtual SizeRange SizeRange2 { get; set; }
+        public virtual SizeRange ExtraSizeRange1 { get; set; }
+        public virtual SizeRange ExtraSizeRange2 { get; set; }
         public virtual Sleeve Sleeve { get; set; }
         public virtual Vendor Vendor { get; set; }
     }
     public class SysParameter : ModelBase       
     {
-        public short Id { get; set; }
         public string Name { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
@@ -531,7 +476,6 @@ namespace BridalPOS.Models.Core
         public Nullable<double> DiscPercentPwd { get; set; }
         public Nullable<decimal> DiscPricePwd { get; set; }
         public Nullable<double> DepositPercent { get; set; }
-        public Nullable<short> StyleFormatId { get; set; }
         public string ManagerPwd { get; set; }
         public string OwnerPwd { get; set; }
         public string TaxName1 { get; set; }
@@ -550,8 +494,6 @@ namespace BridalPOS.Models.Core
     }
     public class Ticket : ModelBase             
     {
-
-        public int MemberId { get; set; }
         public decimal Total { get; set; }
         public decimal PaidAmount { get; set; }
         public decimal Balance { get; set; }
@@ -567,7 +509,6 @@ namespace BridalPOS.Models.Core
         }
 
 
-        public int TicketId { get; set; }
         public Nullable<int> ReceiptId { get; set; }
         public short TransactionTypeId { get; set; }
         public System.DateTime TransactionDate { get; set; }
@@ -612,7 +553,6 @@ namespace BridalPOS.Models.Core
             this.CashDrawers = new HashSet<CashDrawer>();
         }
 
-        public short Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<CashDrawer> CashDrawers { get; set; }
@@ -626,7 +566,6 @@ namespace BridalPOS.Models.Core
             this.StyleMasters = new HashSet<StyleMaster>();
         }
 
-        public short Id { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }

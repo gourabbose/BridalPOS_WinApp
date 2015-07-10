@@ -39,7 +39,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\Manager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BridalPOS.Business.Interfaces\BridalPOS.Business.Interfaces.csproj">
+      <Project>{843a2dae-cbdb-4ef5-842e-f240c78ccfed}</Project>
+      <Name>BridalPOS.Business.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BridalPOS.DataAccess.Interfaces\BridalPOS.DataAccess.Interfaces.csproj">
+      <Project>{5cc85b5a-679f-4f5a-a75a-2587d4a64a60}</Project>
+      <Name>BridalPOS.DataAccess.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BridalPOS.Models\BridalPOS.Models.csproj">
+      <Project>{e4d9ee6e-698c-4824-b338-a38b8d2c6c86}</Project>
+      <Name>BridalPOS.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BridalPOS.Utilities\BridalPOS.Utilities.csproj">
+      <Project>{66c790bc-7c22-4102-87b9-eb682d1c54cc}</Project>
+      <Name>BridalPOS.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Managers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
