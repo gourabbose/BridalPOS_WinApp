@@ -20,10 +20,7 @@ namespace BridalPOS.WinApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Initializer.Init();
-            var v = ServiceFactory.Create<IManager<SizeRange>>();
-            var res = v.GetAll();
-            var res2 = v.GetById(112);
-            //Application.Run(new Form1());
+            Application.Run(new Form1());
         }
     }
 }

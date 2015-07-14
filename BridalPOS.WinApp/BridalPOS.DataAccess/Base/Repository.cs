@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BridalPOS.DataAccess.Base
 {
-    public class Repository<T> : DataAccess.Interfaces.Base.IRepository<T> where T : Models.Base.ModelBase
+    public class Repository<T> : DataAccess.Interfaces.Base.IRepository<T> where T : Models.Base.ModelBase, new()
     {
         private BridalPOSContext _context;
         private System.Data.Entity.DbSet<T> _dbSet;
@@ -48,17 +48,16 @@ namespace BridalPOS.DataAccess.Base
 
         public void Delete(T entity)
         {
-            entity.IsDeleted = true;
-            _context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            //entity.IsDeleted = true;
+            _context.Entry(entity).State = System.Data.Entity.EntityState.Deleted;
             _dbSet.Attach(entity);
             _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var entity = _dbSet.Find(id) as T;
-            entity.IsDeleted = true;
-            _context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            var entity = new T { Id = id };
+            _context.Entry(entity).State = System.Data.Entity.EntityState.Deleted;
             _dbSet.Attach(entity);
             _context.SaveChanges();
         }
